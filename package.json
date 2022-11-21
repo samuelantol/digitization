@@ -1,0 +1,23 @@
+{
+  "name": "digi-offer",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@img-comparison-slider/vue": "^7.7.0",
+    "img-comparison-slider": "^7.8.1",
+    "pinia": "^2.0.23",
+    "vue": "^3.2.41",
+    "vue-image-zoomer": "^2.2.2",
+    "vue-inner-image-zoom": "^2.0.0",
+    "vue-router": "^4.1.5",
+    "vue-zoom-on-hover": "^1.0.6"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.1.2",
+    "vite": "^3.1.8"
+  }
+}
