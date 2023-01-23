@@ -1,4 +1,5 @@
 <template>
+    <h2>Sken grafík s pečaťami vo vysokom rozlíšení</h2>
     <div>
         <ImgComparisonSlider>
             <!-- eslint-disable -->
@@ -37,12 +38,17 @@ export default {
   img-comparison-slider {
     --divider-width: 10px;
     --divider-color: #00ff00;
-    --divider-style: dashed;
 
     --default-handle-color: #00ff00;
     --default-handle-width: clamp(40px, 10vw, 200px);
     --default-handle-opacity: 1;
 
     outline: none;
+  }
+  .divider{
+    border-left-style: dashed !important;
+  }
+  .divider:after{
+    border-left-style: dashed !important;
   }
 </style>

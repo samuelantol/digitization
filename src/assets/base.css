@@ -1,74 +1,82 @@
-/* color palette from <https://github.com/vuejs/theme> */
 :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
+  --lh: 1.2;
 
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
+  --breakpoint-mobile-min: 320px;
+  --breakpoint-mobile-max: 575px;
 
-  --vt-c-indigo: #2c3e50;
+  --breakpoint-smalltablet-min: 576px;
+  --breakpoint-smalltablet-max: 767px;
 
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+  --breakpoint-largetablet-min: 768px;
+  --breakpoint-largetablet-max: 1024px;
 
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+  --breakpoint-smallscreen-min: 1025px;
+  --breakpoint-smallscreen-max: 1399px;
+
+  --breakpoint-largescreen-min: 1400px;
+  --breakpoint-largescreen-max: 2559px;
+
+  --breakpoint-2k-min: 2560px;
+  --breakpoint-2k-max: 3839px;
+
+  --breakpoint-4k-min: 3840px;
 }
 
-/* semantic color variables for this project */
-:root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
-
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
-
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
-
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
-  }
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  position: relative;
-  font-weight: normal;
+@font-face {
+  font-family: 'Fugue';
+  src: url('./fonts/fugue.otf');
+  padding: 0;
 }
 
 body {
   min-height: 100vh;
-  color: var(--color-text);
-  background: var(--color-background);
+  color: #000000;
+  background: #ffffff;
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: Fugue;
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* h1 {
+
+} */
+
+h2{
+  font-size: 40px;
+  margin-top: 120px;
+  line-height: var(--lh);
+  font-weight: 500;
+  text-align: center;
+}
+
+@media (max-width: 575px) {
+  h2 {
+    font-size: 20px;
+    margin-top: 60px;
+  }
+}
+
+button {
+  stroke: none;
+  box-shadow: none;
+  border: none;
+  background: none;
+
+  line-height: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: #00ff00;
+  cursor: pointer;
+  text-align: center;
+
+  padding: 0;
+}
+
+button:hover {
+  color: #000000;
 }
