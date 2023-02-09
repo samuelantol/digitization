@@ -3,9 +3,13 @@
     <div class="sketchfab-container">
         <div class="sketchfab-embed-wrapper">
             <span class="circle"></span>
-            <iframe class="embeded-frame" title="1918.328 The Age of Bronze"
+            <!-- <iframe class="embeded-frame" title="Shod egg (1911) / Vajíčko zdobené okúvaním"
                 frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
-                src="https://sketchfab.com/models/88c184078caa45da98c21cfe5f1d6845/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_stop=0&ui_inspector=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=0&ui_annotations=0&scrollwheel=0">
+                src="https://sketchfab.com/models/ce77b41d39b344749ae6277480d5401a/embed?autostart=1&camera=0&transparent=1&ui_animations=0&ui_infos=0&ui_stop=0&ui_inspector=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=0&ui_annotations=0&scrollwheel=0">
+            </iframe> -->
+            <iframe class="embeded-frame" title="Plastika-Svätý Matúš."
+                frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+                src="https://sketchfab.com/models/9984d4d7bb284bda8a12268ab90d42ea/embed?autostart=1&transparent=1&scrollwheel=0">
             </iframe>
         </div>
     </div>
