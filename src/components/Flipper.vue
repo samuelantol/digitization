@@ -27,22 +27,19 @@
     <div class="container">
         <div v-for="image in imagesLarge">
             <div class="mySlides">
-                <div class="numbertext">1 / 6</div>
-                <img :src="image.src" style="width:100%">
+                <div class="numbertext">{{ image.index+1 }} / 6</div>
+                <img :class="{ showed: isSelectedImage(image.index) }" :src="image.src" style="width:100%">
             </div>
         </div>
             
         <a class="prev" @click="plusSlides(-1)">❮</a>
         <a class="next" @click="plusSlides(1)">❯</a>
 
-        <!-- <div class="caption-container">
-            <p id="caption"></p>
-        </div> -->
-
         <div class="row">
             <div v-for="image in imagesSmall">
                 <div class="column">
-                    <img class="demo cursor" :class="{ active: isSelectedImage(image.index) }" :src="image.src" style="width:100%" @click="currentSlide(image.index)" alt="The Woods">
+                    <img class="demo cursor" :class="{ active: isSelectedImage(image.index) }"
+                        :src="image.src" style="width:100%" @click="currentSlide(image.index)" alt="The Woods">
                 </div>
             </div>
         </div>
@@ -253,5 +250,9 @@ img {
 .active,
 .demo:hover {
   opacity: 1;
+}
+
+.showed {
+    display: block;
 }
 </style>
