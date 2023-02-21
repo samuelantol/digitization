@@ -26,9 +26,9 @@
 
     <div class="container">
         <div v-for="image in imagesLarge">
-            <div class="mySlides">
+            <div v-if="isSelectedImage(image.index)">
                 <div class="numbertext">{{ image.index+1 }} / 6</div>
-                <img :class="{ showed: isSelectedImage(image.index) }" :src="image.src" style="width:100%">
+                <img :src="image.src" style="width:100%">
             </div>
         </div>
             
@@ -39,7 +39,8 @@
             <div v-for="image in imagesSmall">
                 <div class="column">
                     <img class="demo cursor" :class="{ active: isSelectedImage(image.index) }"
-                        :src="image.src" style="width:100%" @click="currentSlide(image.index)" alt="The Woods">
+                        :src="image.src" style="width:100%" @click="currentSlide(image.index)">
+                    <!-- <div :class="{ duotone: isSelectedImage(image.index) }"> </div> -->
                 </div>
             </div>
         </div>
@@ -63,15 +64,17 @@
         }
     }
 
+    //
+
+    const slideIndex = ref(0);
+
     function isSelectedImage (index) {
-        if (selectedSlide.value === index) {
+        if (slideIndex.value === index) {
             return true;
         } else {
             return false;
         }
     }
-
-    //
 
     const imagesSmall = ref ([
         {index: 0, src: "https://www.w3schools.com/howto/img_woods.jpg"},
@@ -90,42 +93,27 @@
         {index: 5, src: "https://www.w3schools.com/howto/img_snow_wide.jpg"}
     ]);
 
-    const selectedSlide = ref(0);
-
-    let slideIndex = 1;
-    showSlides(slideIndex);
+    //let slideIndex = 0;
+    showSlides(slideIndex.value);
 
     function plusSlides(n) {
-        showSlides(slideIndex += n);
+        showSlides(slideIndex.value += n);
     }
 
     function currentSlide(n) {
-        showSlides(slideIndex = n);
+        showSlides(slideIndex.value = n);
     }
 
     function showSlides(n) {
         let i;
-        let slides = imagesLarge.value; //document.getElementsByClassName("mySlides");
-        let dots = imagesSmall.value; //document.getElementsByClassName("demo");
-        //let captionText = document.getElementById("caption");
+        let slides = imagesLarge.value;
+        let dots = imagesSmall.value;
 
-        if (n > slides.length) {
-            slideIndex = 1
+        if (n > slides.length - 1) {
+            slideIndex.value = 0;
+        } else if (n < 0) {
+            slideIndex.value = slides.length - 1;
         }
-        if (n < 1) {
-            slideIndex = slides.length
-        }
-
-        // for (i = 0; i < slides.length; i++) {
-        //     slides[i].style.display = "none";
-        // }
-        // for (i = 0; i < dots.length; i++) {
-        //     dots[i].className = dots[i].className.replace(" active", "");
-        // }
-
-        // slides[slideIndex-1].style.display = "block";
-        //dots[slideIndex-1].className += " active";
-        //captionText.innerHTML = dots[slideIndex-1].alt;
     }
 </script>
 
@@ -244,15 +232,18 @@ img {
 
 /* Add a transparency effect for thumnbail images */
 .demo {
-  opacity: 0.6;
+  opacity: 0.5;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
 }
 
-.active,
+.active {
+  opacity:1;
+  fill: #00ff00;
+}
+
 .demo:hover {
-  opacity: 1;
-}
-
-.showed {
-    display: block;
+  filter: none;
+  -webkit-filter: none;
 }
 </style>
