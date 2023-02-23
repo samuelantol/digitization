@@ -6,41 +6,32 @@
         <button @click='selectTab(4)' :class="{selected: isSelected(4)}">Sken obrazov s rôznym nasvietením</button> /
         <button @click='selectTab(5)' :class="{selected: isSelected(5)}">Sken textílií</button> </h2>
 
-    <div class="flip-container">
-
-        <div class="flip-button-left">
-            <svg slot="handle" width="57" height="36" viewBox="0 0 57 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21.4,32.3L7.2,18.1L21.4,4" stroke="#00FF00" stroke-width="10" />
-            </svg>
-        </div>
-
-        <img class="page" src='https://images.unsplash.com/photo-1542216516-dc8bc35b0c97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2804&q=80'>
-
-        <div class="flip-button-right">
-            <svg slot="handle" width="57" height="36" viewBox="0 0 57 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M35.4,4l14.1,14.1L35.4,32.3" stroke="#00FF00" stroke-width="10" />
-            </svg>
-        </div>
-
-    </div>
 
     <div class="container">
         <div v-for="image in imagesLarge">
             <div v-if="isSelectedImage(image.index)">
                 <div class="numbertext">{{ image.index+1 }} / 6</div>
-                <img :src="image.src" style="width:100%">
+                <img class="mySlides" :src="image.src" style="width:100%">
             </div>
+            <img v-else class="hiddenSlides" :src="image.src" style="width:100%">
         </div>
-            
-        <a class="prev" @click="plusSlides(-1)">❮</a>
-        <a class="next" @click="plusSlides(1)">❯</a>
+
+        <div class="prev" @click="plusSlides(-1)">
+            <svg slot="handle" width="57" height="36" viewBox="0 0 57 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21.4,32.3L7.2,18.1L21.4,4" stroke="#00FF00" stroke-width="10" />
+            </svg>
+        </div>
+        <div class="next" @click="plusSlides(1)">
+            <svg slot="handle" width="57" height="36" viewBox="0 0 57 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M35.4,4l14.1,14.1L35.4,32.3" stroke="#00FF00" stroke-width="10" />
+            </svg>
+        </div>
 
         <div class="row">
             <div v-for="image in imagesSmall">
                 <div class="column">
-                    <img class="demo cursor" :class="{ active: isSelectedImage(image.index) }"
+                    <img class="cursor" :class="{ active: isSelectedImage(image.index), demo: !isSelectedImage(image.index)}"
                         :src="image.src" style="width:100%" @click="currentSlide(image.index)">
-                    <!-- <div :class="{ duotone: isSelectedImage(image.index) }"> </div> -->
                 </div>
             </div>
         </div>
@@ -118,31 +109,6 @@
 </script>
 
 <style>
-.flip-container {
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    height: fit-content;
-}
-.page {
-    display: inline-block;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    width: 50vw;
-    max-width: 500px;
-    height: auto;
-    border-left: 10px dashed #00ff00;
-    border-right: 10px dashed #00ff00;
-}
-.flip-button {
-    display: inline-block;
-    width: 5%;
-    height: 100%;
-}
 .selected {
     color: #000000;
 }
@@ -164,6 +130,8 @@ img {
 
 /* Hide the images by default */
 .mySlides {
+}
+.hiddenSlides {
   display: none;
 }
 
@@ -198,7 +166,7 @@ img {
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  /* background-color: rgba(0, 0, 0, 0.8); */
 }
 
 /* Number text (1/3 etc) */
@@ -218,6 +186,10 @@ img {
   color: white;
 }
 
+.row {
+  margin-top: 20px;
+}
+
 .row:after {
   content: "";
   display: table;
@@ -232,18 +204,17 @@ img {
 
 /* Add a transparency effect for thumnbail images */
 .demo {
-  opacity: 0.5;
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
+  opacity: 1;
 }
 
 .active {
   opacity:1;
-  fill: #00ff00;
+  outline: solid 100px #00ff00;
+  outline-offset: -100px;
 }
 
 .demo:hover {
-  filter: none;
-  -webkit-filter: none;
+  outline: dashed 10px #00ff00;
+  outline-offset: -10px;
 }
 </style>
