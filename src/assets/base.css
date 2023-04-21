@@ -23,8 +23,8 @@
 }
 
 @font-face {
-  font-family: 'Fugue';
-  src: url('./fonts/fugue.otf');
+  font-family: 'SNGSans';
+  src: url('./fonts/SNGSans-Medium.otf');
   padding: 0;
 }
 
@@ -34,7 +34,7 @@ body {
   background: #ffffff;
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: Fugue;
+  font-family: SNGSans;
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
